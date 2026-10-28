@@ -1,0 +1,3 @@
+dataset,rows,n_customers,max_group_rows,top1_share_pct,median_group_rows,max_over_median,pandas_groupby_median_s,polars_groupby_median_s,polars_partial_agg_chunked_median_s,dominant_customer
+balanced,300000,5000,92,0.03,60.0,1.5,0.0203,0.0072,0.0062,C00537
+skewed,599848,5000,299922,50.0,60.0,4998.7,0.0582,0.0117,0.0146,C00537

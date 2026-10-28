@@ -1,0 +1,55 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\dbt.EXE run --profiles-dir . --project-dir .
+[2026-10-26 21:41:10]
+
+14:41:02  Running with dbt=1.12.6
+14:41:03  Registered adapter: duckdb=1.11.0
+14:41:03  Unable to do partial parsing because saved manifest not found. Starting full parse.
+14:41:06  [WARNING][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `relationships` defined on 'fct_orders' in
+package 'dpw_orders' (models\marts\schema.yml). Arguments to generic tests
+should be nested under the `arguments` property.
+14:41:07  Found 12 models, 36 data tests, 2 sources, 501 macros
+14:41:07  
+14:41:07  Concurrency: 1 threads (target='dev')
+14:41:07  
+14:41:07  1 of 12 START sql view model staging.stg_orders ................................ [RUN]
+14:41:07  1 of 12 OK created sql view model staging.stg_orders ........................... [OK in 0.26s]
+14:41:07  2 of 12 START sql view model staging.stg_rejected_orders ....................... [RUN]
+14:41:07  2 of 12 OK created sql view model staging.stg_rejected_orders .................. [OK in 0.03s]
+14:41:07  3 of 12 START sql table model marts.dim_customer ............................... [RUN]
+14:41:08  3 of 12 OK created sql table model marts.dim_customer .......................... [OK in 0.14s]
+14:41:08  4 of 12 START sql table model marts.dim_date ................................... [RUN]
+14:41:08  4 of 12 OK created sql table model marts.dim_date .............................. [OK in 0.08s]
+14:41:08  5 of 12 START sql table model marts.dim_payment_method ......................... [RUN]
+14:41:08  5 of 12 OK created sql table model marts.dim_payment_method .................... [OK in 0.04s]
+14:41:08  6 of 12 START sql table model marts.dim_product_category ....................... [RUN]
+14:41:08  6 of 12 OK created sql table model marts.dim_product_category .................. [OK in 0.03s]
+14:41:08  7 of 12 START sql table model marts.fct_orders ................................. [RUN]
+14:41:08  7 of 12 OK created sql table model marts.fct_orders ............................ [OK in 0.05s]
+14:41:08  8 of 12 START sql table model marts.agg_rejection_reasons ...................... [RUN]
+14:41:08  8 of 12 OK created sql table model marts.agg_rejection_reasons ................. [OK in 0.06s]
+14:41:08  9 of 12 START sql table model marts.agg_daily_sales ............................ [RUN]
+14:41:08  9 of 12 OK created sql table model marts.agg_daily_sales ....................... [OK in 0.04s]
+14:41:08  10 of 12 START sql table model marts.agg_orders_by_status ...................... [RUN]
+14:41:08  10 of 12 OK created sql table model marts.agg_orders_by_status ................. [OK in 0.03s]
+14:41:08  11 of 12 START sql table model marts.agg_payment_method_usage .................. [RUN]
+14:41:08  11 of 12 OK created sql table model marts.agg_payment_method_usage ............. [OK in 0.07s]
+14:41:08  12 of 12 START sql table model marts.agg_sales_by_category ..................... [RUN]
+14:41:08  12 of 12 OK created sql table model marts.agg_sales_by_category ................ [OK in 0.04s]
+14:41:08  
+14:41:08  Finished running 10 table models, 2 view models in 0 hours 0 minutes and 1.21 seconds (1.21s).
+14:41:08  
+14:41:08  Completed successfully
+14:41:08  
+14:41:08  Done. PASS=12 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=12
+14:41:08  [WARNING][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 5 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+
+
+[exit code 0]

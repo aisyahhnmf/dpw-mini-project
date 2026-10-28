@@ -1,0 +1,64 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.check_parquet
+[2026-10-26 21:37:55]
+
+== RAW: orders.parquet | 7.0 KB | baris=36 | kolom=10
+order_id            str
+customer_id         str
+order_ts            str
+product_category    str
+quantity            str
+unit_price          str
+discount_pct        str
+payment_method      str
+status              str
+_extracted_at       str
+  order_id customer_id              order_ts product_category quantity unit_price discount_pct payment_method   status                     _extracted_at
+0    O1001        C001  2026-09-01T09:15:00Z      Electronics        1      250.0         0.05           card     paid  2026-10-26T14:37:46.314357+00:00
+1    O1002        C002  2026-09-01T10:10:00Z             Home        2       45.5          0.0       transfer  shipped  2026-10-26T14:37:46.314357+00:00
+2    O1003        C003  2026-09-01T11:05:00Z            Books        3      12.99          0.1        ewallet     paid  2026-10-26T14:37:46.314357+00:00
+
+== VALID: valid_orders_batch.parquet | 6.4 KB | baris=30 | kolom=9
+order_id                str
+customer_id             str
+order_ts                str
+product_category        str
+quantity              int64
+unit_price          float64
+discount_pct        float64
+payment_method          str
+status                  str
+  order_id customer_id             order_ts product_category  quantity  unit_price  discount_pct payment_method   status
+0    O1001        C001  2026-09-01T09:15:00      Electronics         1      250.00          0.05           card     paid
+1    O1002        C002  2026-09-01T10:10:00             Home         2       45.50          0.00       transfer  shipped
+2    O1003        C003  2026-09-01T11:05:00            Books         3       12.99          0.10        ewallet     paid
+
+== REJECTED: rejected_orders_batch.parquet | 8.4 KB | baris=6 | kolom=13
+order_id            str
+customer_id         str
+order_ts            str
+product_category    str
+quantity            str
+unit_price          str
+discount_pct        str
+payment_method      str
+status              str
+reject_reason       str
+reject_fields       str
+rejected_at         str
+source              str
+  order_id customer_id              order_ts product_category quantity unit_price discount_pct payment_method status                                                                reject_reason reject_fields                       rejected_at     source
+0    O1031        C026  2026-09-11T09:00:00Z            Books        0       15.0          0.0           card   paid                      quantity: Input should be greater than 0 [greater_than]      quantity  2026-10-26T14:37:46.314357+00:00  batch_api
+1    O1032        C027  2026-09-11T10:00:00Z          Fashion        1      -12.0          0.0        ewallet   paid  unit_price: Input should be greater than or equal to 0 [greater_than_equal]    unit_price  2026-10-26T14:37:46.314357+00:00  batch_api
+2    O1033        C028  2026-09-11T11:00:00Z      Electronics        1       99.0          1.2           card   paid      discount_pct: Input should be less than or equal to 1 [less_than_equal]  discount_pct  2026-10-26T14:37:46.314357+00:00  batch_api
+
+Distribusi alasan penolakan (per field):
+reject_fields
+quantity        1
+unit_price      1
+discount_pct    1
+order_ts        1
+status          1
+customer_id     1
+
+
+[exit code 0]

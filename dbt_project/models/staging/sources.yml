@@ -1,0 +1,10 @@
+version: 2
+sources:
+  - name: raw
+    description: "Tabel mentah hasil pipeline Python (Polars -> DuckDB). Hanya data yang lolos data contract."
+    schema: raw
+    tables:
+      - name: orders
+        description: "Pesanan valid (batch API + Kafka), sudah dedup per order_id dan memiliki gross/net amount."
+      - name: rejected_orders
+        description: "Record yang DITOLAK data contract beserta alasan penolakan (audit)."

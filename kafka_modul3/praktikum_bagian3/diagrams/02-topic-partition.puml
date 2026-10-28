@@ -1,0 +1,9 @@
+@startuml
+rectangle "Topic: dpw3-events" as T
+rectangle "Partition 0" as P0
+rectangle "Partition 1" as P1
+rectangle "Partition 2" as P2
+T --> P0
+T --> P1
+T --> P2
+@enduml

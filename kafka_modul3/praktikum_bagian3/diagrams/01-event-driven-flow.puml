@@ -1,0 +1,8 @@
+@startuml
+left to right direction
+rectangle Producer
+queue "Kafka Topic\ndpw3-events" as Kafka
+rectangle Consumer
+Producer --> Kafka : publish
+Kafka --> Consumer : consume
+@enduml

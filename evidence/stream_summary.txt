@@ -1,0 +1,21 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.stream_summary
+[2026-10-26 21:39:54]
+
+valid di sink   : 34  (order_id unik: 34)
+rejected di sink: 6
+distribusi partition (valid): {2: 8, 1: 12, 0: 14}
+alasan penolakan:
+  - quantity : 3
+  - unit_price : 1
+  - order_id : 1
+  - status : 1
+
+Contoh rejected:
+  ORD-S00001 | unit_price: Input should be greater than or equal to 0 [greater_than_equal]
+   | order_id: String should have at least 1 character [string_too_short]
+  ORD-S00015 | quantity: Input should be greater than 0 [greater_than]
+  ORD-S00010 | quantity: Input should be greater than 0 [greater_than]
+  ORD-S00013 | quantity: Input should be greater than 0 [greater_than]
+
+
+[exit code 0]

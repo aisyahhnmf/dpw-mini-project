@@ -1,0 +1,52 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.kafka_consumer --idle-timeout 10
+[2026-10-26 21:39:49]
+
+2026-10-26 21:39:37,419 | INFO    | consumer | [consumer-1] mulai | topic=orders group=orders-etl reset=earliest | order_id sudah ada di sink: 4
+2026-10-26 21:39:37,542 | INFO    | consumer | [consumer-1] partition=1 offset=4 key=ORD-S00001
+2026-10-26 21:39:37,545 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00003 (sink idempotent)
+2026-10-26 21:39:37,545 | INFO    | consumer | [consumer-1] partition=1 offset=5 key=ORD-S00003
+2026-10-26 21:39:37,549 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00005 (sink idempotent)
+2026-10-26 21:39:37,549 | INFO    | consumer | [consumer-1] partition=1 offset=6 key=ORD-S00005
+2026-10-26 21:39:37,552 | INFO    | consumer | [consumer-1] partition=1 offset=7 key=None
+2026-10-26 21:39:37,555 | INFO    | consumer | [consumer-1] partition=1 offset=8 key=ORD-S00008
+2026-10-26 21:39:37,558 | INFO    | consumer | [consumer-1] partition=1 offset=9 key=ORD-S00011
+2026-10-26 21:39:37,561 | INFO    | consumer | [consumer-1] partition=1 offset=10 key=ORD-S00018
+2026-10-26 21:39:37,564 | INFO    | consumer | [consumer-1] partition=1 offset=11 key=ORD-S00020
+2026-10-26 21:39:37,568 | INFO    | consumer | [consumer-1] partition=1 offset=12 key=ORD-S00021
+2026-10-26 21:39:37,571 | INFO    | consumer | [consumer-1] partition=1 offset=13 key=ORD-S00028
+2026-10-26 21:39:37,573 | INFO    | consumer | [consumer-1] partition=1 offset=14 key=ORD-S00029
+2026-10-26 21:39:37,577 | INFO    | consumer | [consumer-1] partition=1 offset=15 key=ORD-S00032
+2026-10-26 21:39:37,580 | INFO    | consumer | [consumer-1] partition=1 offset=16 key=ORD-S00036
+2026-10-26 21:39:37,583 | INFO    | consumer | [consumer-1] partition=1 offset=17 key=ORD-S00037
+2026-10-26 21:39:37,586 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00002 (sink idempotent)
+2026-10-26 21:39:37,586 | INFO    | consumer | [consumer-1] partition=2 offset=2 key=ORD-S00002
+2026-10-26 21:39:37,589 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00004 (sink idempotent)
+2026-10-26 21:39:37,592 | INFO    | consumer | [consumer-1] partition=2 offset=3 key=ORD-S00004
+2026-10-26 21:39:37,595 | INFO    | consumer | [consumer-1] partition=2 offset=4 key=ORD-S00006
+2026-10-26 21:39:37,598 | INFO    | consumer | [consumer-1] partition=2 offset=5 key=ORD-S00009
+2026-10-26 21:39:37,601 | INFO    | consumer | [consumer-1] partition=2 offset=6 key=ORD-S00014
+2026-10-26 21:39:37,605 | INFO    | consumer | [consumer-1] partition=2 offset=7 key=ORD-S00015
+2026-10-26 21:39:37,608 | INFO    | consumer | [consumer-1] partition=2 offset=8 key=ORD-S00017
+2026-10-26 21:39:37,611 | INFO    | consumer | [consumer-1] partition=2 offset=9 key=ORD-S00019
+2026-10-26 21:39:37,613 | INFO    | consumer | [consumer-1] partition=2 offset=10 key=ORD-S00023
+2026-10-26 21:39:38,550 | INFO    | consumer | [consumer-1] partition=0 offset=0 key=ORD-S00010
+2026-10-26 21:39:38,553 | INFO    | consumer | [consumer-1] partition=0 offset=1 key=ORD-S00012
+2026-10-26 21:39:38,557 | INFO    | consumer | [consumer-1] partition=0 offset=2 key=ORD-S00013
+2026-10-26 21:39:38,560 | INFO    | consumer | [consumer-1] partition=0 offset=3 key=ORD-S00016
+2026-10-26 21:39:38,564 | INFO    | consumer | [consumer-1] partition=0 offset=4 key=ORD-S00022
+2026-10-26 21:39:38,567 | INFO    | consumer | [consumer-1] partition=0 offset=5 key=ORD-S00024
+2026-10-26 21:39:38,571 | INFO    | consumer | [consumer-1] partition=0 offset=6 key=ORD-S00025
+2026-10-26 21:39:38,574 | INFO    | consumer | [consumer-1] partition=0 offset=7 key=ORD-S00026
+2026-10-26 21:39:38,577 | INFO    | consumer | [consumer-1] partition=0 offset=8 key=ORD-S00027
+2026-10-26 21:39:38,581 | INFO    | consumer | [consumer-1] partition=0 offset=9 key=ORD-S00030
+2026-10-26 21:39:38,584 | INFO    | consumer | [consumer-1] partition=0 offset=10 key=ORD-S00031
+2026-10-26 21:39:38,588 | INFO    | consumer | [consumer-1] partition=0 offset=11 key=ORD-S00033
+2026-10-26 21:39:38,591 | INFO    | consumer | [consumer-1] partition=0 offset=12 key=ORD-S00034
+2026-10-26 21:39:38,594 | INFO    | consumer | [consumer-1] partition=0 offset=13 key=ORD-S00035
+2026-10-26 21:39:38,598 | INFO    | consumer | [consumer-1] partition=0 offset=14 key=ORD-S00038
+2026-10-26 21:39:38,601 | INFO    | consumer | [consumer-1] partition=0 offset=15 key=ORD-S00039
+2026-10-26 21:39:38,604 | INFO    | consumer | [consumer-1] partition=0 offset=16 key=ORD-S00040
+2026-10-26 21:39:49,012 | INFO    | consumer | [consumer-1] SELESAI | {"read": 40, "valid": 30, "rejected": 5, "duplicate_skipped": 5}
+
+
+[exit code 0]

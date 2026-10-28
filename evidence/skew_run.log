@@ -1,0 +1,8 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.skew --rows 300000
+[2026-10-26 21:51:26]
+
+{'dataset': 'balanced', 'rows': 300000, 'n_customers': 5000, 'max_group_rows': 92, 'top1_share_pct': np.float64(0.03), 'median_group_rows': 60.0, 'max_over_median': np.float64(1.5), 'pandas_groupby_median_s': 0.0203, 'polars_groupby_median_s': 0.0072, 'polars_partial_agg_chunked_median_s': 0.0062, 'dominant_customer': 'C00537'}
+{'dataset': 'skewed', 'rows': 599848, 'n_customers': 5000, 'max_group_rows': 299922, 'top1_share_pct': np.float64(50.0), 'median_group_rows': 60.0, 'max_over_median': np.float64(4998.7), 'pandas_groupby_median_s': 0.0582, 'polars_groupby_median_s': 0.0117, 'polars_partial_agg_chunked_median_s': 0.0146, 'dominant_customer': 'C00537'}
+
+
+[exit code 0]

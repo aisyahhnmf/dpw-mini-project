@@ -1,0 +1,11 @@
+@startuml
+entity fct_orders { * order_id (PK)\n--\ncustomer_id (FK)\ncategory_key (FK)\npayment_method_key (FK)\ndate_key (FK)\nstatus, quantity, unit_price,\ndiscount_pct, gross_amount, net_amount }
+entity dim_customer { * customer_id (PK) }
+entity dim_product_category { * category_key (PK)\nproduct_category }
+entity dim_payment_method { * payment_method_key (PK)\npayment_method }
+entity dim_date { * date_key (PK)\nyear, month, day, day_name, is_weekend }
+fct_orders }o--|| dim_customer
+fct_orders }o--|| dim_product_category
+fct_orders }o--|| dim_payment_method
+fct_orders }o--|| dim_date
+@enduml

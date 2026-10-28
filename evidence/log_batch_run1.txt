@@ -1,0 +1,15 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.run_batch --reset --simulate-failures 3
+[2026-10-26 21:37:46]
+
+2026-10-26 21:37:42,571 | INFO    | extractor | === RUN BATCH mulai | watermark=None | page_size=10 | simulasi_gagal=3 ===
+2026-10-26 21:37:42,572 | WARNING | extractor | GET page=1 gagal (percobaan 1/6): HTTP 503 Service Unavailable (simulasi) -> retry dalam 0.52s
+2026-10-26 21:37:43,091 | WARNING | extractor | GET page=1 gagal (percobaan 2/6): HTTP 503 Service Unavailable (simulasi) -> retry dalam 1.07s
+2026-10-26 21:37:44,166 | WARNING | extractor | GET page=1 gagal (percobaan 3/6): HTTP 503 Service Unavailable (simulasi) -> retry dalam 2.15s
+2026-10-26 21:37:46,313 | INFO    | extractor | page=1/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:46,313 | INFO    | extractor | page=2/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:46,313 | INFO    | extractor | page=3/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:46,314 | INFO    | extractor | page=4/4 diterima: 6 record (total_sumber=36)
+2026-10-26 21:37:46,506 | INFO    | extractor | RUN SELESAI | {"run_at": "2026-10-26T14:37:46.314357+00:00", "watermark_in": null, "watermark_out": "2026-09-11T15:00:00", "pages": 4, "retries": 3, "records_read": 36, "raw_appended": 36, "duplicates_skipped_raw": 0, "valid_new": 30, "valid_appended": 30, "rejected": 6, "raw_total": 36, "valid_total": 30, "unique_order_id_valid": 30, "seconds": 4.018}
+
+
+[exit code 0]

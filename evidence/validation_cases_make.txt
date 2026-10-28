@@ -1,0 +1,6 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.export_evidence_tables --cases-only
+[2026-10-26 21:38:00]
+
+
+
+[exit code 0]

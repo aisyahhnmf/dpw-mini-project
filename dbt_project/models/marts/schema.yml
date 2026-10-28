@@ -1,0 +1,68 @@
+version: 2
+models:
+  - name: dim_customer
+    description: "Dimensi pelanggan. Grain: satu baris per customer_id."
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+  - name: dim_product_category
+    description: "Dimensi kategori produk."
+    columns:
+      - name: category_key
+        tests: [unique, not_null]
+      - name: product_category
+        tests: [unique, not_null]
+  - name: dim_payment_method
+    description: "Dimensi metode pembayaran."
+    columns:
+      - name: payment_method_key
+        tests: [unique, not_null]
+  - name: dim_date
+    description: "Dimensi tanggal (tanggal yang memiliki pesanan)."
+    columns:
+      - name: date_key
+        tests: [unique, not_null]
+  - name: fct_orders
+    description: "Fact pesanan. Grain: satu baris per order_id. Star schema: join ke dim_customer, dim_product_category, dim_payment_method, dim_date."
+    columns:
+      - name: order_id
+        description: "Primary key fact."
+        tests: [unique, not_null]
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships: {to: ref('dim_customer'), field: customer_id}
+      - name: category_key
+        tests:
+          - not_null
+          - relationships: {to: ref('dim_product_category'), field: category_key}
+      - name: payment_method_key
+        tests:
+          - not_null
+          - relationships: {to: ref('dim_payment_method'), field: payment_method_key}
+      - name: date_key
+        tests:
+          - not_null
+          - relationships: {to: ref('dim_date'), field: date_key}
+      - name: net_amount
+        description: "gross_amount * (1 - discount_pct)"
+        tests: [not_null]
+  - name: agg_daily_sales
+    description: "Ringkasan penjualan harian."
+    columns:
+      - name: order_date
+        tests: [unique, not_null]
+  - name: agg_sales_by_category
+    columns:
+      - name: product_category
+        tests: [unique, not_null]
+  - name: agg_orders_by_status
+    columns:
+      - name: status
+        tests: [unique, not_null]
+  - name: agg_payment_method_usage
+    columns:
+      - name: payment_method
+        tests: [unique, not_null]
+  - name: agg_rejection_reasons
+    description: "Jumlah record ditolak per field penyebab."

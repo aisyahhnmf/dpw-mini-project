@@ -1,0 +1,13 @@
+$ docker compose exec broker /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group orders-etl
+[2026-10-26 21:39:54]
+
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+orders-etl      orders          0          17              17              0               -               -               -
+orders-etl      orders          1          18              18              0               -               -               -
+orders-etl      orders          2          11              11              0               -               -               -
+
+
+Consumer group 'orders-etl' has no active members.
+
+[exit code 0]

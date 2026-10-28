@@ -1,0 +1,29 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.transform
+[2026-10-26 21:40:31]
+
+2026-10-26 21:40:31,408 | INFO    | transform | Rencana query lazy:
+simple π 13/13 ["order_id", "customer_id", ... 11 other columns]
+   WITH_COLUMNS:
+   [(col("gross_amount") * (1.0 - col("discount_pct"))).alias("net_amount")] 
+     WITH_COLUMNS:
+     [(col("quantity").cast(Float64) * col("unit_price")).alias("gross_amount"), col("order_ts").dt.date().alias("order_date")] 
+       WITH_COLUMNS:
+       [col("order_ts").str.strptime(["raise"]), col("order_id"), col("customer_id"), col("product_category"), col("quantity"), col("unit_price"), col("discount_pct"), col("payment_method"), col("status")] 
+        UNIQUE[maintain_order: true, keep_strategy: First] BY Some(["order_id"])
+          UNION[maintain_order: true]
+            PLAN 0:
+               WITH_COLUMNS:
+               ["batch_api".alias("source")] 
+                Parquet SCAN [D:/kuliah/semester 5/code of 5/dpw-mini-project/processed/valid_orders_batch.parquet]
+                PROJECT */9 COLUMNS
+                ESTIMATED ROWS: 30
+            PLAN 1:
+               WITH_COLUMNS:
+               ["kafka".alias("source")] 
+                NDJson SCAN [D:/kuliah/semester 5/code of 5/dpw-mini-project/processed/stream_valid.jsonl]
+                PROJECT 9/12 COLUMNS
+          END UNION[maintain_order: true]
+2026-10-26 21:40:31,778 | INFO    | transform | transform selesai: {'rows': 64, 'unique_order_id': 64, 'schema': {'order_id': 'String', 'customer_id': 'String', 'order_ts': "Datetime(time_unit='us', time_zone=None)", 'product_category': 'String', 'quantity': 'Int64', 'unit_price': 'Float64', 'discount_pct': 'Float64', 'payment_method': 'String', 'status': 'String', 'source': 'String', 'gross_amount': 'Float64', 'net_amount': 'Float64', 'order_date': 'Date'}}
+
+
+[exit code 0]

@@ -1,0 +1,8 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.export_evidence_tables
+[2026-10-26 21:41:27]
+
+baris dengan selisih net_amount > 0.015: 0
+dtypes: [('order_id', 'VARCHAR', 'YES', None, None, None), ('customer_id', 'VARCHAR', 'YES', None, None, None), ('order_ts', 'TIMESTAMP', 'YES', None, None, None), ('product_category', 'VARCHAR', 'YES', None, None, None), ('quantity', 'BIGINT', 'YES', None, None, None), ('unit_price', 'DOUBLE', 'YES', None, None, None), ('discount_pct', 'DOUBLE', 'YES', None, None, None), ('payment_method', 'VARCHAR', 'YES', None, None, None), ('status', 'VARCHAR', 'YES', None, None, None), ('source', 'VARCHAR', 'YES', None, None, None), ('gross_amount', 'DOUBLE', 'YES', None, None, None), ('net_amount', 'DOUBLE', 'YES', None, None, None), ('order_date', 'DATE', 'YES', None, None, None)]
+
+
+[exit code 0]

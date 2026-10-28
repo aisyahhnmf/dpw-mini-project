@@ -1,0 +1,108 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.analytics
+[2026-10-26 21:41:27]
+
+# Jawaban Pertanyaan Analitik (dari DuckDB + dbt marts)
+
+## 1. Nilai penjualan bersih per hari (10 hari pertama; net_sales_paid_shipped = status paid/shipped)
+
+```sql
+SELECT order_date, total_orders, round(net_amount_all_status,2) AS net_all_status, round(net_sales_paid_shipped,2) AS net_paid_shipped FROM marts.agg_daily_sales ORDER BY order_date LIMIT 10
+```
+
+| order_date          |   total_orders |   net_all_status |   net_paid_shipped |
+|:--------------------|---------------:|-----------------:|-------------------:|
+| 2026-09-01 00:00:00 |              3 |           363.57 |             363.57 |
+| 2026-09-02 00:00:00 |              3 |           258.82 |             196.42 |
+| 2026-09-03 00:00:00 |              3 |           584.05 |             110    |
+| 2026-09-04 00:00:00 |              3 |           156.6  |             156.6  |
+| 2026-09-05 00:00:00 |              3 |           275.6  |             275.6  |
+| 2026-09-06 00:00:00 |              3 |          1022.6  |            1022.6  |
+| 2026-09-07 00:00:00 |              3 |           192.46 |             192.46 |
+| 2026-09-08 00:00:00 |              3 |           285.48 |             285.48 |
+| 2026-09-09 00:00:00 |              3 |           244    |             244    |
+| 2026-09-10 00:00:00 |              3 |           565.3  |             565.3  |
+
+## 2. Kategori produk dengan penjualan bersih tertinggi
+
+```sql
+SELECT product_category, total_orders, round(net_amount_all_status,2) AS net_all_status, round(net_sales_paid_shipped,2) AS net_paid_shipped FROM marts.agg_sales_by_category ORDER BY net_all_status DESC
+```
+
+| product_category   |   total_orders |   net_all_status |   net_paid_shipped |
+|:-------------------|---------------:|-----------------:|-------------------:|
+| beauty             |             12 |      3.53354e+07 |        3.53354e+07 |
+| fashion            |             14 |      2.84314e+07 |        1.58493e+07 |
+| electronics        |             12 |      1.34458e+07 |        1.27724e+07 |
+| home               |             13 |      1.31751e+07 |        1.31751e+07 |
+| books              |             10 |      1.09616e+07 |        1.09616e+07 |
+| sports             |              3 |      9.54766e+06 |        9.54766e+06 |
+
+## 3. Jumlah & nilai pesanan menurut status
+
+```sql
+SELECT status, total_orders, round(net_amount,2) AS net_amount FROM marts.agg_orders_by_status ORDER BY total_orders DESC
+```
+
+| status    |   total_orders |   net_amount |
+|:----------|---------------:|-------------:|
+| paid      |             41 |  6.09794e+07 |
+| shipped   |             18 |  3.66621e+07 |
+| cancelled |              3 |  7.16181e+06 |
+| refunded  |              2 |  6.09354e+06 |
+
+## 4. Metode pembayaran paling sering digunakan
+
+```sql
+SELECT payment_method, total_orders, pct_of_orders FROM marts.agg_payment_method_usage ORDER BY total_orders DESC
+```
+
+| payment_method   |   total_orders |   pct_of_orders |
+|:-----------------|---------------:|----------------:|
+| ewallet          |             17 |           26.56 |
+| card             |             14 |           21.88 |
+| bank_transfer    |             11 |           17.19 |
+| credit_card      |              9 |           14.06 |
+| transfer         |              8 |           12.5  |
+| cod              |              5 |            7.81 |
+
+## 5a. Jumlah record ditolak (total)
+
+```sql
+SELECT count(*) AS total_rejected_records FROM staging.stg_rejected_orders
+```
+
+|   total_rejected_records |
+|-------------------------:|
+|                       12 |
+
+## 5b. Penyebab penolakan terbesar (per field)
+
+```sql
+SELECT rejected_field, total_rejected_records FROM marts.agg_rejection_reasons ORDER BY total_rejected_records DESC
+```
+
+| rejected_field   |   total_rejected_records |
+|:-----------------|-------------------------:|
+| quantity         |                        4 |
+| unit_price       |                        2 |
+| status           |                        2 |
+| discount_pct     |                        1 |
+| order_id         |                        1 |
+| customer_id      |                        1 |
+| order_ts         |                        1 |
+
+## Validasi sampel: total net harian dihitung ulang langsung dari raw.orders (harus sama dengan mart)
+
+```sql
+SELECT a.order_date, round(a.net_amount_all_status,2) AS mart, round(sum(o.net_amount),2) AS dari_raw FROM marts.agg_daily_sales a JOIN raw.orders o ON cast(o.order_ts AS date)=a.order_date GROUP BY a.order_date, a.net_amount_all_status ORDER BY a.order_date LIMIT 3
+```
+
+| order_date          |   mart |   dari_raw |
+|:--------------------|-------:|-----------:|
+| 2026-09-01 00:00:00 | 363.57 |     363.57 |
+| 2026-09-02 00:00:00 | 258.82 |     258.82 |
+| 2026-09-03 00:00:00 | 584.05 |     584.05 |
+
+
+
+[exit code 0]

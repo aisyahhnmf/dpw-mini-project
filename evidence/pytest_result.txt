@@ -1,0 +1,8 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider
+[2026-10-26 21:38:04]
+
+...................                                                      [100%]
+19 passed in 2.10s
+
+
+[exit code 0]

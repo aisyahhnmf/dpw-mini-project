@@ -1,0 +1,7 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.load_warehouse
+[2026-10-26 21:40:33]
+
+2026-10-26 21:40:33,687 | INFO    | warehouse | warehouse dimuat: {'raw.orders': 64, 'unique_order_id': 64, 'raw.rejected_orders': 12, 'rejected_leaked_into_orders': 0}
+
+
+[exit code 0]

@@ -1,0 +1,12 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.run_batch --ignore-watermark
+[2026-10-26 21:37:52]
+
+2026-10-26 21:37:52,417 | INFO    | extractor | === RUN BATCH mulai | watermark=None | page_size=10 | simulasi_gagal=0 ===
+2026-10-26 21:37:52,421 | INFO    | extractor | page=1/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:52,422 | INFO    | extractor | page=2/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:52,422 | INFO    | extractor | page=3/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:52,422 | INFO    | extractor | page=4/4 diterima: 6 record (total_sumber=36)
+2026-10-26 21:37:52,600 | INFO    | extractor | RUN SELESAI | {"run_at": "2026-10-26T14:37:52.422688+00:00", "watermark_in": null, "watermark_out": "2026-09-11T15:00:00", "pages": 4, "retries": 0, "records_read": 36, "raw_appended": 0, "duplicates_skipped_raw": 36, "valid_new": 0, "valid_appended": 0, "rejected": 0, "raw_total": 36, "valid_total": 30, "unique_order_id_valid": 30, "seconds": 0.184}
+
+
+[exit code 0]

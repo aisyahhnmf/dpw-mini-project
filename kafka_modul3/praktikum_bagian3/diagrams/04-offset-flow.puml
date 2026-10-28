@@ -1,0 +1,11 @@
+@startuml
+rectangle Partition
+rectangle "Offset 0" as O0
+rectangle "Offset 1" as O1
+rectangle "Offset 2" as O2
+rectangle "Committed Offset" as C
+Partition --> O0
+Partition --> O1
+Partition --> O2
+O2 --> C
+@enduml

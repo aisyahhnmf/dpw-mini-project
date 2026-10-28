@@ -1,0 +1,26 @@
+@startuml
+title Payment Event Stream - Ordering per order_id
+skinparam shadowing false
+actor "Producer\n(key = order_id)" as P
+queue "Topic dpw3-events" as T {
+  rectangle "Partition 0\nORD-xx (urut)" as P0
+  rectangle "Partition 1\nORD-xx (urut)" as P1
+  rectangle "Partition 2\nORD-xx (urut)" as P2
+}
+rectangle "Consumer Group\npayment-processors" as G {
+  rectangle "Consumer C1" as C1
+  rectangle "Consumer C2" as C2
+}
+rectangle "Processing\n(cek urutan + dedup event_id)" as PR
+database "Committed Offset\n(__consumer_offsets)" as O
+P --> T : hash(order_id) mod 3
+P0 --> C1
+P1 --> C1
+P2 --> C2
+C1 --> PR
+C2 --> PR
+PR --> O : commit SESUDAH proses
+note bottom of T
+ORD-01: CREATED -> PAID -> SHIPPED selalu di partition yang sama
+end note
+@enduml

@@ -1,0 +1,4 @@
+library,mode,rows,file_mb,repeats,min_s,median_s,runs_s,sum_net_amount,speedup_vs_pandas,python,pandas,polars,os,cpu_count,processor
+pandas,eager,300000,23.9,5,0.4128,0.4918,0.4128;0.4773;0.6086;0.6738;0.4918,987663827775.18,1.0,3.14.5,3.1.0,2.1.0,Windows-10-10.0.19045-SP0,8,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel"
+polars,eager,300000,23.9,5,0.0834,0.0898,0.0869;0.0834;0.0986;0.0898;0.1011,987663827775.18,5.48,3.14.5,3.1.0,2.1.0,Windows-10-10.0.19045-SP0,8,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel"
+polars,lazy (scan_csv+collect),300000,23.9,5,0.0699,0.078,0.0966;0.0780;0.0906;0.0708;0.0699,987663827775.18,6.31,3.14.5,3.1.0,2.1.0,Windows-10-10.0.19045-SP0,8,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel"

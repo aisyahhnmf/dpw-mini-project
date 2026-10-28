@@ -1,0 +1,11 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe -m src.benchmark --rows 300000
+[2026-10-26 21:51:20]
+
+dataset: 300,000 baris, 23.9 MB
+pandas  eager                      median=0.492s min=0.413s
+polars  eager                      median=0.090s min=0.083s
+polars  lazy (scan_csv+collect)    median=0.078s min=0.070s
+tulis D:\kuliah\semester 5\code of 5\dpw-mini-project\evidence\pandas_polars_benchmark.csv
+
+
+[exit code 0]

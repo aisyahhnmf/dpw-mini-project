@@ -1,0 +1,146 @@
+2026-10-26 21:37:42,571 | INFO    | extractor | === RUN BATCH mulai | watermark=None | page_size=10 | simulasi_gagal=3 ===
+2026-10-26 21:37:42,572 | WARNING | extractor | GET page=1 gagal (percobaan 1/6): HTTP 503 Service Unavailable (simulasi) -> retry dalam 0.52s
+2026-10-26 21:37:43,091 | WARNING | extractor | GET page=1 gagal (percobaan 2/6): HTTP 503 Service Unavailable (simulasi) -> retry dalam 1.07s
+2026-10-26 21:37:44,166 | WARNING | extractor | GET page=1 gagal (percobaan 3/6): HTTP 503 Service Unavailable (simulasi) -> retry dalam 2.15s
+2026-10-26 21:37:46,313 | INFO    | extractor | page=1/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:46,313 | INFO    | extractor | page=2/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:46,313 | INFO    | extractor | page=3/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:46,314 | INFO    | extractor | page=4/4 diterima: 6 record (total_sumber=36)
+2026-10-26 21:37:46,506 | INFO    | extractor | RUN SELESAI | {"run_at": "2026-10-26T14:37:46.314357+00:00", "watermark_in": null, "watermark_out": "2026-09-11T15:00:00", "pages": 4, "retries": 3, "records_read": 36, "raw_appended": 36, "duplicates_skipped_raw": 0, "valid_new": 30, "valid_appended": 30, "rejected": 6, "raw_total": 36, "valid_total": 30, "unique_order_id_valid": 30, "seconds": 4.018}
+2026-10-26 21:37:49,607 | INFO    | extractor | === RUN BATCH mulai | watermark=2026-09-11T15:00:00 | page_size=10 | simulasi_gagal=0 ===
+2026-10-26 21:37:49,611 | INFO    | extractor | page=1/0 diterima: 0 record (total_sumber=0)
+2026-10-26 21:37:49,864 | INFO    | extractor | RUN SELESAI | {"run_at": "2026-10-26T14:37:49.611712+00:00", "watermark_in": "2026-09-11T15:00:00", "watermark_out": "2026-09-11T15:00:00", "pages": 1, "retries": 0, "records_read": 0, "raw_appended": 0, "duplicates_skipped_raw": 0, "valid_new": 0, "valid_appended": 0, "rejected": 0, "raw_total": 36, "valid_total": 30, "unique_order_id_valid": 30, "seconds": 0.258}
+2026-10-26 21:37:52,417 | INFO    | extractor | === RUN BATCH mulai | watermark=None | page_size=10 | simulasi_gagal=0 ===
+2026-10-26 21:37:52,421 | INFO    | extractor | page=1/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:52,422 | INFO    | extractor | page=2/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:52,422 | INFO    | extractor | page=3/4 diterima: 10 record (total_sumber=36)
+2026-10-26 21:37:52,422 | INFO    | extractor | page=4/4 diterima: 6 record (total_sumber=36)
+2026-10-26 21:37:52,600 | INFO    | extractor | RUN SELESAI | {"run_at": "2026-10-26T14:37:52.422688+00:00", "watermark_in": null, "watermark_out": "2026-09-11T15:00:00", "pages": 4, "retries": 0, "records_read": 36, "raw_appended": 0, "duplicates_skipped_raw": 36, "valid_new": 0, "valid_appended": 0, "rejected": 0, "raw_total": 36, "valid_total": 30, "unique_order_id_valid": 30, "seconds": 0.184}
+2026-10-26 21:38:03,159 | INFO    | consumer | DUPLIKAT dilewati order_id=A1 (sink idempotent)
+2026-10-26 21:39:20,096 | INFO    | producer | DUPLICATE DEMO: order_id=ORD-S00001 dikirim 2x
+2026-10-26 21:39:21,335 | INFO    | producer | terkirim key=ORD-S00002 partition=2 offset=0
+2026-10-26 21:39:21,335 | INFO    | producer | terkirim key=ORD-S00004 partition=2 offset=1
+2026-10-26 21:39:21,335 | INFO    | producer | terkirim key=ORD-S00001 partition=1 offset=0
+2026-10-26 21:39:21,335 | INFO    | producer | terkirim key=ORD-S00003 partition=1 offset=1
+2026-10-26 21:39:21,335 | INFO    | producer | terkirim key=ORD-S00005 partition=1 offset=2
+2026-10-26 21:39:21,335 | INFO    | producer | terkirim key=ORD-S00001 partition=1 offset=3
+2026-10-26 21:39:21,335 | INFO    | producer | PRODUCER SELESAI | dikirim=6 terkonfirmasi=6 gagal=0 topic=orders
+2026-10-26 21:39:21,862 | INFO    | consumer | [consumer-1] mulai | topic=orders group=orders-etl reset=earliest | order_id sudah ada di sink: 0
+2026-10-26 21:39:25,048 | INFO    | consumer | [consumer-1] partition=2 offset=0 key=ORD-S00002
+2026-10-26 21:39:25,069 | INFO    | consumer | [consumer-1] partition=2 offset=1 key=ORD-S00004
+2026-10-26 21:39:25,072 | INFO    | consumer | [consumer-1] partition=1 offset=0 key=ORD-S00001
+2026-10-26 21:39:25,075 | INFO    | consumer | [consumer-1] partition=1 offset=1 key=ORD-S00003
+2026-10-26 21:39:25,078 | INFO    | consumer | [consumer-1] partition=1 offset=2 key=ORD-S00005
+2026-10-26 21:39:25,081 | INFO    | consumer | [consumer-1] partition=1 offset=3 key=ORD-S00001
+2026-10-26 21:39:35,553 | INFO    | consumer | [consumer-1] SELESAI | {"read": 6, "valid": 4, "rejected": 1, "duplicate_skipped": 1}
+2026-10-26 21:39:36,587 | INFO    | producer | terkirim key=ORD-S00002 partition=2 offset=2
+2026-10-26 21:39:36,588 | INFO    | producer | terkirim key=ORD-S00004 partition=2 offset=3
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00006 partition=2 offset=4
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00009 partition=2 offset=5
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00014 partition=2 offset=6
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00015 partition=2 offset=7
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00017 partition=2 offset=8
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00019 partition=2 offset=9
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00023 partition=2 offset=10
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00010 partition=0 offset=0
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00012 partition=0 offset=1
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00013 partition=0 offset=2
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00016 partition=0 offset=3
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00022 partition=0 offset=4
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00024 partition=0 offset=5
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00025 partition=0 offset=6
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00026 partition=0 offset=7
+2026-10-26 21:39:36,589 | INFO    | producer | terkirim key=ORD-S00001 partition=1 offset=4
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00003 partition=1 offset=5
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00005 partition=1 offset=6
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=None partition=1 offset=7
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00008 partition=1 offset=8
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00011 partition=1 offset=9
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00018 partition=1 offset=10
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00020 partition=1 offset=11
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00021 partition=1 offset=12
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00027 partition=0 offset=8
+2026-10-26 21:39:36,590 | INFO    | producer | terkirim key=ORD-S00028 partition=1 offset=13
+2026-10-26 21:39:36,652 | INFO    | producer | terkirim key=ORD-S00029 partition=1 offset=14
+2026-10-26 21:39:36,652 | INFO    | producer | terkirim key=ORD-S00030 partition=0 offset=9
+2026-10-26 21:39:36,672 | INFO    | producer | terkirim key=ORD-S00031 partition=0 offset=10
+2026-10-26 21:39:36,713 | INFO    | producer | terkirim key=ORD-S00032 partition=1 offset=15
+2026-10-26 21:39:36,714 | INFO    | producer | terkirim key=ORD-S00033 partition=0 offset=11
+2026-10-26 21:39:36,714 | INFO    | producer | terkirim key=ORD-S00034 partition=0 offset=12
+2026-10-26 21:39:36,775 | INFO    | producer | terkirim key=ORD-S00035 partition=0 offset=13
+2026-10-26 21:39:36,775 | INFO    | producer | terkirim key=ORD-S00036 partition=1 offset=16
+2026-10-26 21:39:36,776 | INFO    | producer | terkirim key=ORD-S00037 partition=1 offset=17
+2026-10-26 21:39:36,844 | INFO    | producer | terkirim key=ORD-S00038 partition=0 offset=14
+2026-10-26 21:39:36,848 | INFO    | producer | terkirim key=ORD-S00039 partition=0 offset=15
+2026-10-26 21:39:36,850 | INFO    | producer | terkirim key=ORD-S00040 partition=0 offset=16
+2026-10-26 21:39:36,851 | INFO    | producer | PRODUCER SELESAI | dikirim=40 terkonfirmasi=40 gagal=0 topic=orders
+2026-10-26 21:39:37,419 | INFO    | consumer | [consumer-1] mulai | topic=orders group=orders-etl reset=earliest | order_id sudah ada di sink: 4
+2026-10-26 21:39:37,542 | INFO    | consumer | [consumer-1] partition=1 offset=4 key=ORD-S00001
+2026-10-26 21:39:37,545 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00003 (sink idempotent)
+2026-10-26 21:39:37,545 | INFO    | consumer | [consumer-1] partition=1 offset=5 key=ORD-S00003
+2026-10-26 21:39:37,549 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00005 (sink idempotent)
+2026-10-26 21:39:37,549 | INFO    | consumer | [consumer-1] partition=1 offset=6 key=ORD-S00005
+2026-10-26 21:39:37,552 | INFO    | consumer | [consumer-1] partition=1 offset=7 key=None
+2026-10-26 21:39:37,555 | INFO    | consumer | [consumer-1] partition=1 offset=8 key=ORD-S00008
+2026-10-26 21:39:37,558 | INFO    | consumer | [consumer-1] partition=1 offset=9 key=ORD-S00011
+2026-10-26 21:39:37,561 | INFO    | consumer | [consumer-1] partition=1 offset=10 key=ORD-S00018
+2026-10-26 21:39:37,564 | INFO    | consumer | [consumer-1] partition=1 offset=11 key=ORD-S00020
+2026-10-26 21:39:37,568 | INFO    | consumer | [consumer-1] partition=1 offset=12 key=ORD-S00021
+2026-10-26 21:39:37,571 | INFO    | consumer | [consumer-1] partition=1 offset=13 key=ORD-S00028
+2026-10-26 21:39:37,573 | INFO    | consumer | [consumer-1] partition=1 offset=14 key=ORD-S00029
+2026-10-26 21:39:37,577 | INFO    | consumer | [consumer-1] partition=1 offset=15 key=ORD-S00032
+2026-10-26 21:39:37,580 | INFO    | consumer | [consumer-1] partition=1 offset=16 key=ORD-S00036
+2026-10-26 21:39:37,583 | INFO    | consumer | [consumer-1] partition=1 offset=17 key=ORD-S00037
+2026-10-26 21:39:37,586 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00002 (sink idempotent)
+2026-10-26 21:39:37,586 | INFO    | consumer | [consumer-1] partition=2 offset=2 key=ORD-S00002
+2026-10-26 21:39:37,589 | INFO    | consumer | DUPLIKAT dilewati order_id=ORD-S00004 (sink idempotent)
+2026-10-26 21:39:37,592 | INFO    | consumer | [consumer-1] partition=2 offset=3 key=ORD-S00004
+2026-10-26 21:39:37,595 | INFO    | consumer | [consumer-1] partition=2 offset=4 key=ORD-S00006
+2026-10-26 21:39:37,598 | INFO    | consumer | [consumer-1] partition=2 offset=5 key=ORD-S00009
+2026-10-26 21:39:37,601 | INFO    | consumer | [consumer-1] partition=2 offset=6 key=ORD-S00014
+2026-10-26 21:39:37,605 | INFO    | consumer | [consumer-1] partition=2 offset=7 key=ORD-S00015
+2026-10-26 21:39:37,608 | INFO    | consumer | [consumer-1] partition=2 offset=8 key=ORD-S00017
+2026-10-26 21:39:37,611 | INFO    | consumer | [consumer-1] partition=2 offset=9 key=ORD-S00019
+2026-10-26 21:39:37,613 | INFO    | consumer | [consumer-1] partition=2 offset=10 key=ORD-S00023
+2026-10-26 21:39:38,550 | INFO    | consumer | [consumer-1] partition=0 offset=0 key=ORD-S00010
+2026-10-26 21:39:38,553 | INFO    | consumer | [consumer-1] partition=0 offset=1 key=ORD-S00012
+2026-10-26 21:39:38,557 | INFO    | consumer | [consumer-1] partition=0 offset=2 key=ORD-S00013
+2026-10-26 21:39:38,560 | INFO    | consumer | [consumer-1] partition=0 offset=3 key=ORD-S00016
+2026-10-26 21:39:38,564 | INFO    | consumer | [consumer-1] partition=0 offset=4 key=ORD-S00022
+2026-10-26 21:39:38,567 | INFO    | consumer | [consumer-1] partition=0 offset=5 key=ORD-S00024
+2026-10-26 21:39:38,571 | INFO    | consumer | [consumer-1] partition=0 offset=6 key=ORD-S00025
+2026-10-26 21:39:38,574 | INFO    | consumer | [consumer-1] partition=0 offset=7 key=ORD-S00026
+2026-10-26 21:39:38,577 | INFO    | consumer | [consumer-1] partition=0 offset=8 key=ORD-S00027
+2026-10-26 21:39:38,581 | INFO    | consumer | [consumer-1] partition=0 offset=9 key=ORD-S00030
+2026-10-26 21:39:38,584 | INFO    | consumer | [consumer-1] partition=0 offset=10 key=ORD-S00031
+2026-10-26 21:39:38,588 | INFO    | consumer | [consumer-1] partition=0 offset=11 key=ORD-S00033
+2026-10-26 21:39:38,591 | INFO    | consumer | [consumer-1] partition=0 offset=12 key=ORD-S00034
+2026-10-26 21:39:38,594 | INFO    | consumer | [consumer-1] partition=0 offset=13 key=ORD-S00035
+2026-10-26 21:39:38,598 | INFO    | consumer | [consumer-1] partition=0 offset=14 key=ORD-S00038
+2026-10-26 21:39:38,601 | INFO    | consumer | [consumer-1] partition=0 offset=15 key=ORD-S00039
+2026-10-26 21:39:38,604 | INFO    | consumer | [consumer-1] partition=0 offset=16 key=ORD-S00040
+2026-10-26 21:39:49,012 | INFO    | consumer | [consumer-1] SELESAI | {"read": 40, "valid": 30, "rejected": 5, "duplicate_skipped": 5}
+2026-10-26 21:40:31,408 | INFO    | transform | Rencana query lazy:
+simple π 13/13 ["order_id", "customer_id", ... 11 other columns]
+   WITH_COLUMNS:
+   [(col("gross_amount") * (1.0 - col("discount_pct"))).alias("net_amount")] 
+     WITH_COLUMNS:
+     [(col("quantity").cast(Float64) * col("unit_price")).alias("gross_amount"), col("order_ts").dt.date().alias("order_date")] 
+       WITH_COLUMNS:
+       [col("order_ts").str.strptime(["raise"]), col("order_id"), col("customer_id"), col("product_category"), col("quantity"), col("unit_price"), col("discount_pct"), col("payment_method"), col("status")] 
+        UNIQUE[maintain_order: true, keep_strategy: First] BY Some(["order_id"])
+          UNION[maintain_order: true]
+            PLAN 0:
+               WITH_COLUMNS:
+               ["batch_api".alias("source")] 
+                Parquet SCAN [D:/kuliah/semester 5/code of 5/dpw-mini-project/processed/valid_orders_batch.parquet]
+                PROJECT */9 COLUMNS
+                ESTIMATED ROWS: 30
+            PLAN 1:
+               WITH_COLUMNS:
+               ["kafka".alias("source")] 
+                NDJson SCAN [D:/kuliah/semester 5/code of 5/dpw-mini-project/processed/stream_valid.jsonl]
+                PROJECT 9/12 COLUMNS
+          END UNION[maintain_order: true]
+2026-10-26 21:40:31,778 | INFO    | transform | transform selesai: {'rows': 64, 'unique_order_id': 64, 'schema': {'order_id': 'String', 'customer_id': 'String', 'order_ts': "Datetime(time_unit='us', time_zone=None)", 'product_category': 'String', 'quantity': 'Int64', 'unit_price': 'Float64', 'discount_pct': 'Float64', 'payment_method': 'String', 'status': 'String', 'source': 'String', 'gross_amount': 'Float64', 'net_amount': 'Float64', 'order_date': 'Date'}}
+2026-10-26 21:40:33,687 | INFO    | warehouse | warehouse dimuat: {'raw.orders': 64, 'unique_order_id': 64, 'raw.rejected_orders': 12, 'rejected_leaked_into_orders': 0}

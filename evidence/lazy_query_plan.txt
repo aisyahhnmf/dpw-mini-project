@@ -1,0 +1,16 @@
+RENCANA QUERY POLARS LAZY (hasil .explain(), sebelum collect)
+
+AGGREGATE[maintain_order: false]
+  [col("net_amount").sum().alias("net"), col("order_id").count().alias("n")] BY [col("order_date"), col("product_category")]
+  FROM
+  simple π 4/4 ["order_date", ... 3 other columns]
+     WITH_COLUMNS:
+     [(col("gross_amount") * (1.0 - col("discount_pct"))).alias("net_amount"), col("order_ts").dt.date().alias("order_date")] 
+      simple π 5/5 ["order_id", "order_ts", ... 3 other columns]
+         WITH_COLUMNS:
+         [col("order_ts").str.strptime(["raise"]), (col("quantity").cast(Float64) * col("unit_price")).alias("gross_amount")] 
+          Csv SCAN [D:/kuliah/semester 5/code of 5/dpw-mini-project/processed/bench_300000.csv]
+          PROJECT 6/9 COLUMNS
+          ESTIMATED ROWS: 306042
+
+Catatan: lazy hanya membaca kolom yang dibutuhkan (projection pushdown) dan mengoptimalkan urutan operasi; eager mengeksekusi & mematerialisasi tiap langkah segera.

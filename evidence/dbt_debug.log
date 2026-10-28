@@ -1,0 +1,40 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\dbt.EXE debug --profiles-dir . --project-dir .
+[2026-10-26 21:40:59]
+
+14:40:54  Running with dbt=1.12.6
+14:40:54  dbt version: 1.12.6
+14:40:54  python version: 3.14.5
+14:40:54  python path: D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\python.exe
+14:40:54  os info: Windows-10-10.0.19045-SP0
+14:40:54  Using profiles dir at .
+14:40:54  Using profiles.yml file at .\profiles.yml
+14:40:54  Using dbt_project.yml file at .\dbt_project.yml
+14:40:54  adapter type: duckdb
+14:40:54  adapter version: 1.11.0
+14:40:54  Configuration:
+14:40:54    profiles.yml file [OK found and valid]
+14:40:54    dbt_project.yml file [OK found and valid]
+14:40:54  Required dependencies:
+14:40:54   - git [OK found]
+
+14:40:54  Connection:
+14:40:54    database: warehouse
+14:40:54    schema: main
+14:40:54    path: ../warehouse/warehouse.duckdb
+14:40:54    config_options: None
+14:40:54    extensions: None
+14:40:54    settings: {}
+14:40:54    external_root: .
+14:40:54    use_credential_provider: None
+14:40:54    attach: None
+14:40:54    filesystems: None
+14:40:54    remote: None
+14:40:54    plugins: None
+14:40:54    disable_transactions: False
+14:40:54  Registered adapter: duckdb=1.11.0
+14:40:57    Connection test: [OK connection ok]
+
+14:40:57  All checks passed!
+
+
+[exit code 0]

@@ -1,0 +1,8 @@
+dpw_orders:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../warehouse/warehouse.duckdb
+      schema: main
+      threads: 1

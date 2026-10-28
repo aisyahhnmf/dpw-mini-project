@@ -1,0 +1,10 @@
+@startuml
+rectangle Consume
+rectangle "Produce Output" as P
+rectangle Commit
+rectangle Failure
+Consume --> P
+P --> Failure
+Failure --> Consume : replay
+P --> Commit : success
+@enduml

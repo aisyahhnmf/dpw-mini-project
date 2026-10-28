@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: stg_orders
+    description: "Staging pesanan valid. Grain: satu baris per order_id."
+    columns:
+      - name: order_id
+        description: "Kunci bisnis pesanan."
+        tests: [unique, not_null]
+      - name: customer_id
+        tests: [not_null]
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['paid', 'shipped', 'cancelled', 'refunded']
+  - name: stg_rejected_orders
+    description: "Staging record yang ditolak data contract (audit)."
+    columns:
+      - name: reject_reason
+        tests: [not_null]

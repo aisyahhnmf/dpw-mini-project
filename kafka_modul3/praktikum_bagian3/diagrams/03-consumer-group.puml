@@ -1,0 +1,10 @@
+@startuml
+rectangle "Partition 0" as P0
+rectangle "Partition 1" as P1
+rectangle "Partition 2" as P2
+rectangle "Consumer C1" as C1
+rectangle "Consumer C2" as C2
+P0 --> C1
+P1 --> C2
+P2 --> C1
+@enduml

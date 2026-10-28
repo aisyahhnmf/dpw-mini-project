@@ -1,0 +1,22 @@
+@startuml
+title Pipeline Event-to-Warehouse
+rectangle "orders.csv (simulasi REST API)" as SRC
+rectangle "Batch extractor\nretry/backoff + watermark" as EXT
+rectangle "raw/orders.parquet" as RAW
+rectangle "Data contract (Pydantic)" as DC
+rectangle "rejected + reject_reason" as REJ
+rectangle "stream_orders.csv" as SRC2
+rectangle "Kafka producer" as PROD
+queue "Kafka topic orders (3 partition)" as TOPIC
+rectangle "Consumer + kontrak + sink idempotent" as CONS
+rectangle "Polars transform (lazy)" as POL
+database "DuckDB" as DB
+rectangle "dbt: staging -> marts -> tests -> docs" as DBT
+SRC --> EXT --> RAW --> DC
+DC --> REJ : invalid
+DC --> POL : valid
+SRC2 --> PROD --> TOPIC --> CONS
+CONS --> REJ : invalid
+CONS --> POL : valid
+POL --> DB --> DBT
+@enduml

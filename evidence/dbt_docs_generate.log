@@ -1,0 +1,14 @@
+$ D:\kuliah\semester 5\code of 5\dpw-mini-project\.venv\Scripts\dbt.EXE docs generate --profiles-dir . --project-dir .
+[2026-10-26 21:41:26]
+
+14:41:22  Running with dbt=1.12.6
+14:41:22  Registered adapter: duckdb=1.11.0
+14:41:23  Found 12 models, 36 data tests, 2 sources, 501 macros
+14:41:23  
+14:41:23  Concurrency: 1 threads (target='dev')
+14:41:23  
+14:41:24  Building catalog
+14:41:24  Catalog written to D:\kuliah\semester 5\code of 5\dpw-mini-project\dbt_project\target\catalog.json
+
+
+[exit code 0]
